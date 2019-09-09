@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">peluches123</string>
+    <string name="title_activity_bottom_navigation">bottom_navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_add">Add Item</string>
+    <string name="title_search">Search Item</string>
+    <string name="title_Delete">Delete</string>
+    <string name="title_stock">Stock</string>
+    <string name="id">id</string>
+    <string name="nombre">nombre del item</string>
+    <string name="Precio">precio</string>
+    <string name="Stock">stock</string>
+    <string name="btnAdd">ADD ITEM</string>
+    <string name="Cantidad">cantidad</string>
+    <string name="idborrar">ID</string>
+    <string name="borrar">Borar</string>
+</resources>
