@@ -7,24 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import kotlinx.android.synthetic.main.fragment_delete.view.*
 
 class DeleteFragment: Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
 
-        var bolean : Boolean = true
+    private lateinit var recyclerView: RecyclerView
+    var interfaz : comunicator ?= null
 
-        var peluchito = arguments?.getParcelableArrayList<Peluches>("peluchess")
-        peluchito?.toMutableList()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val root = inflater.inflate(R.layout.fragment_delete,container,false)
 
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_add, container, false)
-
-        return root
+        root.bBorrar.setOnClickListener {
+            var idb = root.eBorar.text.toString()
+            interfaz?.deleteItem(idb)
         }
-
+        return root
 
     }
+}

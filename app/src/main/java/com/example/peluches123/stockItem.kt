@@ -14,7 +14,7 @@ class stockItem : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_stock,container,false)
 
-        var peluchito = arguments?.getParcelableArrayList<Peluches>("peluchess")
+        var peluchito = arguments?.getParcelableArrayList<Peluches>("pelu")
         peluchito?.toMutableList()
         var peluchitos : MutableList<Peluches> = ArrayList()
         peluchitos = peluchito!!

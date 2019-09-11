@@ -7,6 +7,11 @@ import android.widget.TextView
 
 class bottom_navigation : AppCompatActivity(), comunicator {
 
+    override fun deleteItem(id: String) {
+        //peluchito.remove()
+
+    }
+
     override fun addItem(id: String, nombre: String, precio: String, cantidad: String) {
         var peluche = Peluches(id,nombre,precio,cantidad)
         peluchito.add(peluche)
@@ -14,7 +19,6 @@ class bottom_navigation : AppCompatActivity(), comunicator {
 
     var peluchito : MutableList<Peluches> = ArrayList()
 
-    private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
         val manager = supportFragmentManager
@@ -24,26 +28,29 @@ class bottom_navigation : AppCompatActivity(), comunicator {
             R.id.navigation_add -> {
                 val addFragment = addItem()
                 val bundle = Bundle()
-                bundle.putParcelableArrayList("peluchess",ArrayList<Peluches>(peluchito))
+                bundle.putParcelableArrayList("pelu",ArrayList<Peluches>(peluchito))
                 addFragment.arguments=bundle
                 transaction.replace(R.id.contenedor,addFragment).commit()
 
                 return@OnNavigationItemSelectedListener true
             }
+
             R.id.navigation_search -> {
-                val deleteFragment = DeleteFragment()
-                textMessage.setText(R.string.title_dashboard)
-                transaction.replace(R.id.contenedor,deleteFragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
+
             R.id.navigation_delete -> {
-                textMessage.setText(R.string.title_notifications)
+                val deleteFragment = DeleteFragment()
+                val bundle = Bundle()
+                bundle.putParcelableArrayList("pelu", ArrayList<Peluches>(peluchito))
+                deleteFragment.arguments = bundle
+                transaction.replace(R.id.contenedor,deleteFragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_stock -> {
                 val stockFragment = stockItem()
                 val bundle = Bundle()
-                bundle.putParcelableArrayList("peluchess", ArrayList<Peluches>(peluchito))
+                bundle.putParcelableArrayList("pelu", ArrayList<Peluches>(peluchito))
                 stockFragment.arguments = bundle
                 transaction.replace(R.id.contenedor,stockFragment).commit()
                 return@OnNavigationItemSelectedListener true

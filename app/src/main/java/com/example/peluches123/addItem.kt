@@ -23,13 +23,9 @@ class addItem: Fragment()
         savedInstanceState: Bundle?
     ): View? {
 
-        var bolean : Boolean = true
-
-        var peluchito = arguments?.getParcelableArrayList<Peluches>("peluchess")
-        peluchito?.toMutableList()
-
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_add, container, false)
+
         root.btnAdd.setOnClickListener{
             var ids = root.eid.text.toString()
             var nom = root.eNombre.text.toString()
@@ -39,9 +35,8 @@ class addItem: Fragment()
                 Toast.makeText(context, "Empty", Toast.LENGTH_SHORT).show()
             }else{
 
-
                 val builder = AlertDialog.Builder(this.context)
-                builder.setTitle("CONFIRMAR")
+                builder.setTitle("CONFIRMAR INGRESO")
                 builder.setMessage("ID: $ids \nNombre: $nom \nPrecio: $pre \nCantidad $cant \n")
                 //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
